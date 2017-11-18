@@ -8,7 +8,9 @@ const router = require('./router');
 const mongoose = require('mongoose');
 
 // DB Setup
-mongoose.connect('mongodb://localhost:auth/authjs');
+mongoose.connect(
+  'mongodb://travisgerrard:iw78NfQb@ds259105.mlab.com:59105/authtutorial'
+);
 mongoose.Promise = global.Promise;
 
 // App Setup
@@ -17,7 +19,5 @@ app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 
 // Server Setup
-const port = process.env.PORT || 3090;
-const server = http.createServer(app);
-server.listen(port);
-console.log('Server listening on:', port);
+const PORT = process.env.PORT || 5000;
+app.listen(PORT);
